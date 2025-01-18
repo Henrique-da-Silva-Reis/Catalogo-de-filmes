@@ -1,4 +1,4 @@
-const API_KEY = '0f9eb964b198811280b78448ed7cc53d';
+const API_KEY = '0f9eb964b198811280b78448ed7cc53d'; // Substitua com sua chave de API
 const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`;
 
 let favoriteMovies = []; // Array para armazenar os filmes favoritos
@@ -10,12 +10,15 @@ async function fetchMovies(endpoint) {
     try {
         const response = await fetch(url);
         const data = await response.json();
-        
-        if (data.results) {
+
+        if (data.results && data.results.length > 0) {
             displayMovies(data.results);
+        } else {
+            alert('Nenhum filme encontrado para sua pesquisa.');
         }
     } catch (error) {
         console.error('Erro ao buscar filmes:', error);
+        alert('Houve um erro ao buscar os filmes. Tente novamente mais tarde.');
     }
 }
 
@@ -80,14 +83,16 @@ document.getElementById('now-playing').addEventListener('click', () => {
 });
 
 document.getElementById('upcoming').addEventListener('click', () => {
-    fetchMovies('/movie/upcoming');
+    renderFavoriteMovies(); // Exibe a lista de filmes favoritos
 });
 
 // Pesquisa de filmes
 document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const query = document.getElementById('searchInput').value;
-    fetchMovies(`/search/movie?query=${query}`);
+    const query = encodeURIComponent(document.getElementById('searchInput').value);
+    const searchUrl = `/search/movie?query=${query}`;
+    console.log('URL de Pesquisa:', searchUrl); // Verifique a URL gerada
+    fetchMovies(searchUrl);
 });
 
 // Carregar filmes populares inicialmente

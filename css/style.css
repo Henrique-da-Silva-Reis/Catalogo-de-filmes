@@ -8,13 +8,9 @@
 
 :root {
     --text-color: #fff;
-
     --bg-color1: #00BFFF;
     --bg-color2: #026281;
     --bg-color3: #D3D3D3;
-    --bg-color4:
-    --bg-color5:
-    --bg-color6:
 }
 
 body {
@@ -125,7 +121,7 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Estilo para lista*/
+/* Estilo para a lista de favoritos */
 #my-list {
     margin-top: 25px;
 }
