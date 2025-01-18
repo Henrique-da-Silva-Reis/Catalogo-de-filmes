@@ -1,11 +1,11 @@
-const API_KEY = '0f9eb964b198811280b78448ed7cc53d'; // Substitua com sua chave de API
-const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`;
+const api_key = '0f9eb964b198811280b78448ed7cc53d';
+const api_url = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=pt-BR&page=1`;
 
 let favoriteMovies = []; // Array para armazenar os filmes favoritos
 
 // Função para buscar filmes com base em um endpoint da API
 async function fetchMovies(endpoint) {
-    const url = `https://api.themoviedb.org/3${endpoint}?api_key=${API_KEY}&language=pt-BR&page=1`;
+    const url = `https://api.themoviedb.org/3${endpoint}?api_key=${api_key}&language=pt-BR&page=1`;
 
     try {
         const response = await fetch(url);
@@ -18,7 +18,7 @@ async function fetchMovies(endpoint) {
         }
     } catch (error) {
         console.error('Erro ao buscar filmes:', error);
-        alert('Houve um erro ao buscar os filmes. Tente novamente mais tarde.');
+        alert('Houve um erro ao buscar os filmes.');
     }
 }
 
