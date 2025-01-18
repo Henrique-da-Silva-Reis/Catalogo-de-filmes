@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,100..900&family=Pixelify+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: #fff;
+
+    --bg-color1: #00BFFF;
+    --bg-color2: #026281;
+    --bg-color3: #D3D3D3;
+    --bg-color4:
+    --bg-color5:
+    --bg-color6:
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+}
+
+#sidebar {
+    width: 220px;
+    background-color: var(--bg-color1);
+    color: var(--text-color);
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+#sidebar h2 {
+    font-family: "Pixelify Sans", serif;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin-bottom: 10px;
+}
+
+#sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#sidebar ul li a:hover {
+    color: #ff9800;
+}
+
+#content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: "Pixelify Sans", serif;
+    font-size: 2.5em;
+    color: #333;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: var(--bg-color1);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--bg-color2);
+}
+
+#movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.movie {
+    background-color: white;
+    border-radius: 8px;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.movie:hover {
+    background-color: var(--bg-color3);
+    transform: scale(1.05);
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilo para lista*/
+#my-list {
+    margin-top: 25px;
+}
+
+#my-list h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+#favorite-movies {
+    list-style: none;
+    padding: 0;
+}
+
+#favorite-movies li {
+    background-color: var(--bg-color2);
+    color: var(--text-color);
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 5px;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+p {
+    font-size: 0.9em;
+    color: #555;
+}

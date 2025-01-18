@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Filmes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#" id="popular">Filmes Populares</a></li>
+            <li><a href="#" id="top-rated">Melhor avaliados</a></li>
+            <li><a href="#" id="now-playing">Filmes em Cartaz</a></li>
+            <li><a href="#" id="upcoming">Minha lista</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <header>
+            <h1>Catálogo de Filmes</h1>
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Pesquise por um filme..." required>
+                <button type="submit">Buscar</button>
+            </form>
+        </header>
+        
+        <main>
+            <div id="movie-list"></div>
+
+            <!--Minha lista-->
+            <div id="my-list">
+                <h2>Minha lista</h2>
+                <ul id="favorite-movies"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
