@@ -1,16 +1,16 @@
-const api_key = '0f9eb964b198811280b78448ed7cc53d';
-const api_url = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=pt-BR&page=1`;
+const API_KEY = '0f9eb964b198811280b78448ed7cc53d';
+const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&page=1`;
 
 let favoriteMovies = []; // Array para armazenar os filmes favoritos
 
 // Função para buscar filmes com base em um endpoint da API
 async function fetchMovies(endpoint) {
-    const url = `https://api.themoviedb.org/3${endpoint}?api_key=${api_key}&language=pt-BR&page=1`;
+    const url = `https://api.themoviedb.org/3${endpoint}?api_key=${API_KEY}&language=pt-BR&page=1`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
-
+        
         if (data.results && data.results.length > 0) {
             displayMovies(data.results);
         } else {
@@ -18,7 +18,7 @@ async function fetchMovies(endpoint) {
         }
     } catch (error) {
         console.error('Erro ao buscar filmes:', error);
-        alert('Houve um erro ao buscar os filmes.');
+        alert('Houve um erro ao buscar os filmes. Tente novamente mais tarde.');
     }
 }
 
@@ -83,15 +83,17 @@ document.getElementById('now-playing').addEventListener('click', () => {
 });
 
 document.getElementById('upcoming').addEventListener('click', () => {
-    renderFavoriteMovies(); // Exibe a lista de filmes favoritos
+    renderFavoriteMovies(); // Exibe a lista de filmes favoritos quando o botão "Minha lista" for clicado
 });
 
 // Pesquisa de filmes
 document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const query = encodeURIComponent(document.getElementById('searchInput').value);
-    const searchUrl = `/search/movie?query=${query}`;
-    console.log('URL de Pesquisa:', searchUrl); // Verifique a URL gerada
+    const query = encodeURIComponent(document.getElementById('searchInput').value); // Codificando o valor da pesquisa
+    const searchUrl = `https://api.themoviedb.org/3/discover/movie?query=${query}&api_key=${API_KEY}&language=pt-BR&page=1`; // URL completa
+
+    console.log('URL de Pesquisa:', searchUrl); // Log para depuração
+
     fetchMovies(searchUrl);
 });
 
